@@ -3,8 +3,18 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
+
+const mongoURL = "mongodb+srv://lunstia:iHN3Ujp4jXV5LrM6@cluster0.duwmlsq.mongodb.net/?retryWrites=true&w=majority"
+
+async function main() {
+  await mongoose.connect(mongoURL);
+}
+
+main().catch(err => console.log(err));
+
 
 
 const app = express();
