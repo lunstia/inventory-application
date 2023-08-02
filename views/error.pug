@@ -3,6 +3,6 @@ extends layout
 block content
   section.error-page
     div
-      h1= error.status
-      h2= message
+      h1 #{error.status}: #{message}
+      p Oops, sorry about that!
       pre #{error.stack}
