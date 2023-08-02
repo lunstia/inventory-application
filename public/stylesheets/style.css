@@ -1,8 +1,43 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+
+.page-container {
+  position: relative;
+  min-height: 100svh;
+}
+
+header {
+  width: 100%;
+  background-color: gray;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+}
+
+header > div {
+  width: max(0px, 1080px);
+  max-width: 1080px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
 }
