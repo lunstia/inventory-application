@@ -6,6 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
+const shopRouter = require('./routes/shop');
 
 const mongoURL = "mongodb+srv://lunstia:iHN3Ujp4jXV5LrM6@cluster0.duwmlsq.mongodb.net/?retryWrites=true&w=majority"
 
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/shop', shopRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
