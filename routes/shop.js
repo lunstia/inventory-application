@@ -6,14 +6,20 @@ router.get('/', function(req, res, next) {
   res.render('shop');
 });
 
-router.get('/:category')
+router.get('/:category');
 
-router.get('/:category/create')
+router.post('/create');
 
-router.get('/:category/update')
+router.put('/:category/update');
 
-router.get('/:category/delete')
+router.delete('/:category/delete');
 
-router.get('/:category/:id')
+router.get('/:category/:id');
+
+router.post('/:category/create');
+
+router.put('/:category/:id/update')
+
+router.delete('/:category/:id/delete')
 
 module.exports = router;
