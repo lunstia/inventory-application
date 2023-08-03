@@ -1,3 +1,5 @@
+const categoryController = require('../controllers/categoryController')
+
 const express = require('express');
 const router = express.Router();
 
@@ -6,13 +8,13 @@ router.get('/', function(req, res, next) {
   res.render('shop');
 });
 
-router.get('/:category');
+router.get('/:category', categoryController.category_read);
 
-router.post('/create');
+router.post('/create', categoryController.category_create);
 
-router.put('/:category/update');
+router.put('/:category/update', categoryController.category_update);
 
-router.delete('/:category/delete');
+router.delete('/:category/delete', categoryController.category_delete);
 
 router.get('/:category/:id');
 
