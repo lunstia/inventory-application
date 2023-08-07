@@ -25,9 +25,11 @@ router.post('/:category/update', categoryController.category_update);
 
 router.post('/:category/delete', categoryController.category_delete);
 
+router.get('/:category/create', itemController.item_create_get);
+
 router.get('/:category/:id', itemController.item_read);
 
-router.post('/:category/create', itemController.item_create);
+router.post('/:category/create', itemController.item_create_post);
 
 router.post('/:category/:id/update', itemController.item_update)
 

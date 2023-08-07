@@ -1,0 +1,30 @@
+extends layout 
+
+block content 
+    form(method="POST" action='')
+        label(for="category") category:
+        br
+        select(name='category' placeholder='Select Category' required=true)
+            each category in categories
+                if item
+                    option(value=category.category selected=(category.category === item.category ? 'selected' : false))  #{category.category}
+                else 
+                    option(value=category.category)  #{category.category}
+        br
+        label(for="name") Item Name:
+        br
+        input(type="text" name="name" placeholder="Item Name" required=true value=(item ? item.name : ''))
+        br
+        label(for="description") Description: 
+        br
+        textarea(name="description" placeholder="Item's description" col=30 row=30 value=(item ? item.description : ''))
+        br
+        label(for='price') Price: 
+        br
+        input(type="number" name="price" placeholder='Price' required=true value=(item ? item.price : 0))
+        br
+        label(for='quantity') Quantity: 
+        br
+        input(type="number" name="quantity" placeholder="Quantity" required=true value=(item ? item.quantity : 0))
+        br
+        button(type="submit") Submit
