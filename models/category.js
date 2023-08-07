@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 const Category = new Schema({
-    category: String,
+    category: {type: String, unique: true, required: true, minLength: 3, maxLength: 20},
 })
 
 Category.virtual('url').get(function() {
-    return `/${this.category}`;
+    return `/shop/${this.category}`;
 })
 
-export default mongoose.model("Category", Category);
+module.exports = mongoose.model("Category", Category);
