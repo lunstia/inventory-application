@@ -1,4 +1,5 @@
 const categoryController = require('../controllers/categoryController')
+const itemController = require('../controllers/itemController')
 const Category = require('../models/category')
 
 const express = require('express');
@@ -24,12 +25,12 @@ router.post('/:category/update', categoryController.category_update);
 
 router.post('/:category/delete', categoryController.category_delete);
 
-router.get('/:category/:id');
+router.get('/:category/:id', itemController.item_read);
 
-router.post('/:category/create');
+router.post('/:category/create', itemController.item_create);
 
-router.put('/:category/:id/update')
+router.post('/:category/:id/update', itemController.item_update)
 
-router.delete('/:category/:id/delete')
+router.post('/:category/:id/delete', itemController.item_delete)
 
 module.exports = router;
