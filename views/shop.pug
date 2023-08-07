@@ -16,13 +16,13 @@ block content
             button(onclick="const dialog = document.getElementById('deleteDialog'); dialog.showModal();") Delete Category
             
 
-    if items && items > 0
+    if items.length > 0
         section(class="item-grid")
         each item in items
-            div
-                h2=items.name
-                p=items.price 
-                p=items.quantity
+            div(onclick=`location.href='${item.url}'`)
+                h2=item.name
+                p=item.price 
+                p=item.quantity
     else 
         p No items in this category
     dialog(id="addDialog")
