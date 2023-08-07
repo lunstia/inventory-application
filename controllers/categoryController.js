@@ -66,5 +66,19 @@ exports.category_update = [
 ];
 
 exports.category_delete = asyncHandler(async (req, res, next) => {
-    res.send("DELETE CATEGORY: NOT IMPLEMENTED YET")
+    const [category, items] = await Promise.all([
+        Category.findOne({category: req.params.category}).exec(),
+        Item.find({category: req.params.category}).exec()
+    ])
+
+    if (category === null) {
+        next();
+    }
+
+    if (items.length > 0) {
+        res.send('This category is occupied right now, delete all the items before deleting this category!');
+    } else {
+        await Category.deleteOne(category).exec();
+        res.redirect('/');
+    }
 });
