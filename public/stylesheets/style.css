@@ -31,7 +31,11 @@ header > div {
   align-items: center;
 }
 
-a {
+.flex {
+  display: flex;
+}
+
+header a {
   text-decoration: none;
   color: white;
 }
