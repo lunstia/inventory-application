@@ -13,6 +13,8 @@ block content
                 a(href=category.url)=category.category
             button(onclick="const dialog = document.getElementById('addDialog'); dialog.showModal();") Add Category
             button(onclick="const dialog = document.getElementById('updateDialog'); dialog.showModal();") Update Category
+            button(onclick="const dialog = document.getElementById('deleteDialog'); dialog.showModal();") Delete Category
+            
 
     if items && items > 0
         section(class="item-grid")
@@ -27,4 +29,10 @@ block content
         +form('Create', './create')
     dialog(id="updateDialog")
         +form('Update', urlParam + '/update')
+    dialog(id="deleteDialog")
+        form(method="POST" action=urlParam + '/delete')
+                p Are you sure you want to delete this category?
+                br
+                button(type="submit") Delete Category
+                button(type="cancel") Cancel
          
