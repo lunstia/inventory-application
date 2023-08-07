@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const shopRouter = require('./routes/shop');
 
-const mongoURL = "mongodb+srv://lunstia:iHN3Ujp4jXV5LrM6@cluster0.duwmlsq.mongodb.net/?retryWrites=true&w=majority"
+const mongoURL = "mongodb+srv://lunstia:iHN3Ujp4jXV5LrM6@cluster0.duwmlsq.mongodb.net/inventory?retryWrites=true&w=majority"
 
 async function main() {
   await mongoose.connect(mongoURL);
