@@ -8,15 +8,13 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const shopRouter = require('./routes/shop');
 
-const mongoURL = "mongodb+srv://lunstia:iHN3Ujp4jXV5LrM6@cluster0.duwmlsq.mongodb.net/inventory?retryWrites=true&w=majority"
+const mongoURI = process.env.mongoURI;
 
 async function main() {
-  await mongoose.connect(mongoURL);
+  await mongoose.connect(mongoURI);
 }
 
 main().catch(err => console.log(err));
-
-
 
 const app = express();
 
