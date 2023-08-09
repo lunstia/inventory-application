@@ -10,15 +10,18 @@ block content
     nav(class="flex")
         h1=title
         div(class="flex")
-            each category in categories
-                a(href=category.url)=category.category
+            if categories 
+                each category in categories
+                    a(href=category.url)=category.category
+            else
+                | no categories
             button(onclick="const dialog = document.getElementById('addDialog'); dialog.showModal();") Add Category
             button(onclick="const dialog = document.getElementById('updateDialog'); dialog.showModal();") Update Category
             button(onclick="const dialog = document.getElementById('deleteDialog'); dialog.showModal();") Delete Category
             
-
-    if items.length > 0
+    if categories
         button(onclick=`location.href='${urlParam + '/create'}'`) Create Item
+    if items && items.length > 0
         section(class="item-grid")
         each item in items
             div(onclick=`location.href='${item.url}'`)
@@ -28,7 +31,10 @@ block content
     else 
         p No items in this category
     dialog(id="addDialog")
-        +form('Create', './create')
+        if categories
+            +form('Create', './create')
+        else 
+            +form('Create', 'shop/create')
     dialog(id="updateDialog")
         +form('Update', urlParam + '/update')
     dialog(id="deleteDialog")

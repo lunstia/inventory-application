@@ -53,6 +53,7 @@ exports.category_update = [
             res.redirect('/shop');
             return
         }
+        
         if (!result.isEmpty()) {
             res.send("error!" + result.toString())
         } else {

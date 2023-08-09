@@ -6,8 +6,8 @@ block content
         br
         select(name='category' placeholder='Select Category' required=true)
             each category in categories
-                if item
-                    option(value=category.category selected=(category.category === item.category ? 'selected' : false))  #{category.category}
+                if current
+                    option(value=category.category selected=(category.category === current ? 'selected' : false))  #{category.category}
                 else 
                     option(value=category.category)  #{category.category}
         br
@@ -17,7 +17,7 @@ block content
         br
         label(for="description") Description: 
         br
-        textarea(name="description" placeholder="Item's description" col=30 row=30 value=(item ? item.description : ''))
+        textarea(name="description" placeholder="Item's description" cols=50 rows=10) #{item ? item.description : ''}
         br
         label(for='price') Price: 
         br
